@@ -73,6 +73,7 @@ import AsignmentComponent from "../../AsignmentComponent"; // plasmic-import: xS
 import Notifications from "../../Notifications"; // plasmic-import: Nj5CZ4TEJ72v/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TabBar from "../../TabBar"; // plasmic-import: D1EMOH5X04fh/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: P4BoPr4mGw2j/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: mJqpyqbUtzd2VoHjhzzUXf/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: mJqpyqbUtzd2VoHjhzzUXf/styleTokensProvider
@@ -180,6 +181,7 @@ export type PlasmicStudPanel__OverridesType = {
   modal?: Flex__<typeof AntdModal>;
   tabBar?: Flex__<typeof TabBar>;
   theWall?: Flex__<"div">;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultStudPanelProps {}
@@ -1507,6 +1509,30 @@ function PlasmicStudPanel__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "apiRequest"
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "apiRequest"
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "apiRequest"
       }
     ],
     [$props, $ctx, $refs]
@@ -19356,8 +19382,7 @@ function PlasmicStudPanel__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $queries.queryStart.data.response
-                                .jwtPayload.name;
+                              return $state.apiRequest.data.jwtPayload.name;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -19681,6 +19706,73 @@ function PlasmicStudPanel__RenderFunc(props: {
             ) : null}
           </div>
         ) : null}
+        <ApiRequest
+          data-plasmic-name={"apiRequest"}
+          data-plasmic-override={overrides.apiRequest}
+          className={classNames("__wab_instance", sty.apiRequest)}
+          config={(() => {
+            try {
+              return {
+                headers: {
+                  Authorization: "Bearer " + $state.token
+                }
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          errorDisplay={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__mHjPp
+              )}
+            >
+              {"Error fetching data"}
+            </div>
+          }
+          loadingDisplay={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__ce5Qw
+              )}
+            >
+              {"Loading..."}
+            </div>
+          }
+          method={"GET"}
+          onError={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          onLoading={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["apiRequest", "loading"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          onSuccess={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          ref={ref => {
+            $refs["apiRequest"] = ref;
+          }}
+          url={"https://n8nstudent.dotavvab.com/webhook/stud_check"}
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -19767,7 +19859,8 @@ const PlasmicDescendants = {
     "notifications",
     "modal",
     "tabBar",
-    "theWall"
+    "theWall",
+    "apiRequest"
   ],
   loginError: ["loginError", "button"],
   button: ["button"],
@@ -20082,7 +20175,8 @@ const PlasmicDescendants = {
   notifications: ["notifications"],
   modal: ["modal"],
   tabBar: ["tabBar"],
-  theWall: ["theWall"]
+  theWall: ["theWall"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -20168,6 +20262,7 @@ type NodeDefaultElementType = {
   modal: typeof AntdModal;
   tabBar: typeof TabBar;
   theWall: "div";
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -20309,6 +20404,7 @@ export const PlasmicStudPanel = Object.assign(
     modal: makeNodeComponent("modal"),
     tabBar: makeNodeComponent("tabBar"),
     theWall: makeNodeComponent("theWall"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicStudPanel
     internalVariantProps: PlasmicStudPanel__VariantProps,
