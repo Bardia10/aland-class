@@ -1,0 +1,227 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background: #ffffff;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__kfkc5 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  align-self: center;
+  row-gap: 10px;
+  padding: 8px;
+}
+.text__aIrLm {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 32px;
+  font-weight: 700;
+  padding-left: 0px;
+  padding-bottom: 0px;
+}
+.img__jcxf8 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 700px;
+  height: 400px;
+  flex-shrink: 0;
+}
+.img__jcxf8 > picture > img {
+  object-fit: cover;
+}
+.freeBox__kyQ2C {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__gbklz {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.freeBox__wjCq {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  column-gap: 10px;
+  padding: 8px;
+}
+.text___7H0Fp {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.img__qLva2 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 54px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.img__qLva2 > picture > img {
+  object-fit: cover;
+}
+.text__erYo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 24px;
+  min-width: 0;
+}
+.freeBox__rEYqO {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__aWObX {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: 20px;
+  min-width: 0;
+  padding: 0px;
+}
+.text__dn3Cw {
+  position: relative;
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  background: var(--token-GGM5uBOPxG16);
+  font-size: 27px;
+  color: #000000;
+  font-weight: 700;
+  text-align: center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.textshowFiles2__dn3CwzvqUt {
+  font-weight: 500;
+  background: linear-gradient(#0000003d, #0000003d), var(--token-GGM5uBOPxG16);
+}
+.text__xx2Zz {
+  position: relative;
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  background: linear-gradient(#0000003d, #0000003d), var(--token-GGM5uBOPxG16);
+  font-size: 27px;
+  color: #000000;
+  font-weight: 500;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.textshowFiles2__xx2ZzzvqUt {
+  font-weight: 700;
+  background: linear-gradient(
+      var(--token-GGM5uBOPxG16),
+      var(--token-GGM5uBOPxG16)
+    ),
+    #0000003d;
+}
+.taklif {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-GGM5uBOPxG16);
+  min-width: 0;
+  padding: 8px 8px 50px;
+}
+.taklifshowFiles2 {
+  display: none;
+}
+.text__yafXu {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 24px;
+  min-width: 0;
+}
+.attachments {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-GGM5uBOPxG16);
+  margin-bottom: 0px;
+  min-width: 0;
+  display: none;
+  padding: 8px 8px 50px;
+}
+.attachmentsshowFiles2 {
+  display: flex;
+}
+.text__imcnU {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 24px;
+  min-width: 0;
+}

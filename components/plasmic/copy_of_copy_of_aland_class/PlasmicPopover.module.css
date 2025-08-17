@@ -1,0 +1,48 @@
+.ariaDialogTrigger:global(.__wab_instance) {
+  position: relative;
+}
+.button2__jk77:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__c2CD {
+  position: relative;
+  height: 1em;
+}
+.svg___14Ikd {
+  position: relative;
+  height: 1em;
+}
+.ariaPopover:global(.__wab_instance) {
+  font-family: var(--token-a6H0jKl4llF4);
+  font-size: var(--token-0E67eiMZ83U8);
+  color: var(--token-fvqdKzInTnbR);
+  line-height: var(--token-oUpGLgRIk-RT);
+  box-shadow: 0px 0px 20px 0px #00000040;
+  border-radius: var(--token-q7Y92ApI5F1N);
+}
+.ariaDialog:global(.__wab_instance) {
+  object-fit: cover;
+  outline-style: none;
+}
+.freeBox__v7Xur {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  background: var(--token-QEskyEZ09Mrx);
+  align-items: flex-start;
+  width: 320px;
+  row-gap: var(--token-R09znQWzn0Lc);
+  border-radius: var(--token-q7Y92ApI5F1N);
+  padding: var(--token-JwJDbOT2PjXS);
+}
+.text__t2Uwg {
+  position: relative;
+}
+.text___2KcO {
+  position: relative;
+  font-weight: 500;
+}
+.text__cafn {
+  position: relative;
+}

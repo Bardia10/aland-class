@@ -1,0 +1,309 @@
+.storyFrame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 80%;
+  justify-content: flex-start;
+  align-items: center;
+  background: url("/plasmic/copy_of_copy_of_aland_class/images/picsartStars241129005604144Png.png") top 0% left 10% / cover repeat,
+    var(--token-GJTysUkeEPyG);
+  position: relative;
+  transition-property: background;
+  transition-duration: 120s;
+  transition-timing-function: ease-out;
+  min-width: 0;
+  -webkit-transition-property: background;
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 120s;
+  border-radius: 500px 0px;
+  padding: 8px;
+}
+.storyFrame:hover {
+  background: url("/plasmic/copy_of_copy_of_aland_class/images/picsartStars241129005604144Png.png") top 100% left 50% / cover repeat,
+    var(--token-GJTysUkeEPyG);
+}
+.button__dlvMp:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.svg__c2DeV {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__vIVA {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox___6AxX {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 72px;
+  height: 50px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  background: #ffffff1a;
+  filter: none;
+  box-shadow: inset 0px 0px 30px 30px #03092e4d;
+  overflow: hidden;
+  flex-shrink: 0;
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10%;
+  padding: 0px 0px 5px;
+}
+.freeBoxstage__1___6AxXFMek {
+  box-shadow: none;
+  backdrop-filter: none;
+  background: none;
+  -webkit-backdrop-filter: none;
+}
+.storyFrame .freeBox___6AxX:hover {
+  background: #ffffff26;
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0px 0px 20px 20px #03092e4d;
+  -webkit-backdrop-filter: blur(2px);
+}
+.storyFramestage__1 .freeBoxstage__1___6AxXFMek:hover {
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+}
+.svg__szaW {
+  object-fit: cover;
+  color: #ffffff;
+  width: 100px;
+  height: 100px;
+  filter: none;
+  backdrop-filter: none;
+  align-self: center;
+  flex-shrink: 0;
+  -webkit-backdrop-filter: none;
+  border-radius: 50%;
+}
+.svgstage__1__szaWFMek {
+  display: none;
+}
+.freeBox__v2VMv {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  max-width: 100%;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 5s;
+  min-height: 300px;
+  min-width: 0;
+  flex-shrink: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 5s;
+  padding: 8px;
+}
+.freeBoxstage__1__v2VMvFMek {
+  max-width: auto;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.text___2ZdHt {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 29%;
+  top: 100px;
+  color: #ffffff;
+  font-size: var(--token-Dkqv2B2mAANG);
+  font-weight: 700;
+  font-family: "Vazirmatn", sans-serif;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.textstage__2___2ZdHttytOq {
+  font-size: 100px;
+  top: -150px;
+}
+.textstage__3___2ZdHtDlUcg {
+  display: none;
+}
+.textstage__4___2ZdHt5GueA {
+  display: none;
+}
+.text__gBz0O {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 33%;
+  top: 100px;
+  color: #ffffff;
+  font-size: var(--token-Dkqv2B2mAANG);
+  font-weight: 700;
+  font-family: "Vazirmatn", sans-serif;
+  right: 0;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.textstage__1__gBz0OFMek {
+  top: 300px;
+}
+.textstage__2__gBz0OtytOq {
+  top: 100px;
+}
+.textstage__3__gBz0ODlUcg {
+  top: 100px;
+  color: #ffffff00;
+  display: block;
+}
+.textstage__4__gBz0O5GueA {
+  display: none;
+}
+.text___6WR3Q {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 20%;
+  top: 300px;
+  color: #ffffff;
+  font-size: var(--token-Qw4mWru9bEPa);
+  font-weight: 700;
+  font-family: "Vazirmatn", sans-serif;
+  text-align: center;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.textstage__1___6WR3QFMek {
+  display: none;
+}
+.textstage__2___6WR3QtytOq {
+  top: 80px;
+  color: #ffffff00;
+  display: block;
+}
+.textstage__3___6WR3QDlUcg {
+  top: 100px;
+  display: block;
+}
+.textstage__4___6WR3Q5GueA {
+  top: 80px;
+  display: block;
+}
+.text__zWcUp {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 16%;
+  top: 300px;
+  color: #ffffff;
+  font-size: var(--token-Qw4mWru9bEPa);
+  font-weight: 700;
+  font-family: "Vazirmatn", sans-serif;
+  text-align: center;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.textstage__1__zWcUpFMek {
+  display: none;
+}
+.textstage__2__zWcUPtytOq {
+  top: 100px;
+  display: none;
+}
+.textstage__3__zWcUpDlUcg {
+  top: 100px;
+  color: #ffffff00;
+  left: 10%;
+  display: block;
+}
+.textstage__4__zWcUp5GueA {
+  top: 100px;
+  left: 8%;
+  text-align: center;
+  display: block;
+}
+.freeBox___1Gard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 72px;
+  height: 50px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  background: #ffffff1a;
+  filter: none;
+  box-shadow: inset 0px 0px 30px 30px #03092e4d;
+  overflow: hidden;
+  flex-shrink: 0;
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10%;
+  padding: 0px 0px 5px;
+}
+.freeBoxstage__4___1Gard5GueA {
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.storyFrame .freeBox___1Gard:hover {
+  background: #ffffff26;
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0px 0px 20px 20px #03092e4d;
+  -webkit-backdrop-filter: blur(2px);
+}
+.storyFramestage__4 .freeBoxstage__4___1Gard5GueA:hover {
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.svg__vq7Rv {
+  object-fit: cover;
+  color: #ffffff;
+  width: 100px;
+  height: 100px;
+  filter: none;
+  backdrop-filter: none;
+  align-self: center;
+  flex-shrink: 0;
+  -webkit-backdrop-filter: none;
+  border-radius: 50%;
+}
+.svgstage__4__vq7Rv5GueA {
+  display: none;
+}
+.button__wo2FR:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.svg__scTll {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__hiRv9 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}

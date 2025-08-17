@@ -1,0 +1,81 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  box-shadow: inset 0px 0px 5px 1px #0000004a;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__tRm1F {
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: 50px;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.freeBoxisCollapsed__tRm1Fo2YY9 {
+  display: flex;
+}
+.text__nAQlX {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.text__fEbNz {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.freeBox___6Ghqh {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBoxisCollapsed___6Ghqho2YY9 {
+  display: none;
+}
+.text__lh75X {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.text___9QeYs {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.text__q3Edr {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1em;
+  flex-shrink: 0;
+}
