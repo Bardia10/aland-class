@@ -68,6 +68,8 @@ import {
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: P4BoPr4mGw2j/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
+import { Video } from "@plasmicpkgs/plasmic-basic-components";
 import SelectableButton from "../../SelectableButton"; // plasmic-import: 4DSeNvpwJ-aN/component
 import OnlineSession from "../../OnlineSession"; // plasmic-import: 4lJ-jqZzgtZ8/component
 import AsignmentComponent from "../../AsignmentComponent"; // plasmic-import: xSWSKlu6yiYm/component
@@ -109,6 +111,7 @@ export type PlasmicStudPanel__OverridesType = {
   jalasat2?: Flex__<"div">;
   jalase?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
+  htmlVideo?: Flex__<typeof Video>;
   taklif?: Flex__<"div">;
   attachments?: Flex__<"div">;
   kelasHa?: Flex__<"div">;
@@ -3358,24 +3361,6 @@ function PlasmicStudPanel__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img___9UmaB)}
-                                displayHeight={"400px"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"700px"}
-                                loading={"lazy"}
-                                src={{
-                                  src: "/plasmic/copy_of_copy_of_aland_class/images/microsoftEdge4QKqDeAZfCUnsplashJpg.jpg",
-                                  fullWidth: 1920,
-                                  fullHeight: 1280,
-                                  aspectRatio: undefined
-                                }}
-                              />
-
                               <Embed
                                 data-plasmic-name={"embedHtml"}
                                 data-plasmic-override={overrides.embedHtml}
@@ -3397,6 +3382,45 @@ function PlasmicStudPanel__RenderFunc(props: {
                                     throw e;
                                   }
                                 })()}
+                              />
+
+                              <Iframe
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.iframe___7JTeV
+                                )}
+                                preview={true}
+                                src={``}
+                                srcDoc={
+                                  '<style>.h_iframe-aparat_embed_frame{position:relative;}.h_iframe-aparat_embed_frame .ratio{display:block;width:100%;height:auto;}.h_iframe-aparat_embed_frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe src="https://www.aparat.com/video/video/embed/videohash/gdv2t4o/vt/frame"  allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>'
+                                }
+                                useHtml={true}
+                              />
+
+                              <Iframe
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.iframe__wkE86
+                                )}
+                                preview={true}
+                                src={``}
+                                srcDoc={
+                                  '<div id="31723794305"><script type="text/JavaScript" src="https://www.aparat.com/embed/gdv2t4o?data[rnddiv]=31723794305&data[responsive]=yes"></script></div>'
+                                }
+                                useHtml={true}
+                              />
+
+                              <Video
+                                data-plasmic-name={"htmlVideo"}
+                                data-plasmic-override={overrides.htmlVideo}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.htmlVideo
+                                )}
+                                controls={true}
+                                src={
+                                  "https://www.chetor.com/wp-content/uploads/2024/09/Rec-0002.mp4"
+                                }
                               />
 
                               <div
@@ -4353,34 +4377,6 @@ function PlasmicStudPanel__RenderFunc(props: {
                                             key={currentIndex}
                                             onClick={async event => {
                                               const $steps = {};
-
-                                              $steps["runCode"] = true
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      customFunction:
-                                                        async () => {
-                                                          return undefined;
-                                                        }
-                                                    };
-                                                    return (({
-                                                      customFunction
-                                                    }) => {
-                                                      return customFunction();
-                                                    })?.apply(null, [
-                                                      actionArgs
-                                                    ]);
-                                                  })()
-                                                : undefined;
-                                              if (
-                                                $steps["runCode"] != null &&
-                                                typeof $steps["runCode"] ===
-                                                  "object" &&
-                                                typeof $steps["runCode"]
-                                                  .then === "function"
-                                              ) {
-                                                $steps["runCode"] =
-                                                  await $steps["runCode"];
-                                              }
                                             }}
                                             platform={"nextjs"}
                                             target={"_blank"}
@@ -20091,6 +20087,7 @@ const PlasmicDescendants = {
     "jalasat2",
     "jalase",
     "embedHtml",
+    "htmlVideo",
     "taklif",
     "attachments",
     "kelasHa",
@@ -20175,6 +20172,7 @@ const PlasmicDescendants = {
     "jalasat2",
     "jalase",
     "embedHtml",
+    "htmlVideo",
     "taklif",
     "attachments",
     "kelasHa",
@@ -20255,6 +20253,7 @@ const PlasmicDescendants = {
     "jalasat2",
     "jalase",
     "embedHtml",
+    "htmlVideo",
     "taklif",
     "attachments",
     "kelasHa",
@@ -20330,14 +20329,16 @@ const PlasmicDescendants = {
     "jalasat2",
     "jalase",
     "embedHtml",
+    "htmlVideo",
     "taklif",
     "attachments"
   ],
   darsha: ["darsha"],
   mabahes: ["mabahes"],
   jalasat2: ["jalasat2"],
-  jalase: ["jalase", "embedHtml", "taklif", "attachments"],
+  jalase: ["jalase", "embedHtml", "htmlVideo", "taklif", "attachments"],
   embedHtml: ["embedHtml"],
+  htmlVideo: ["htmlVideo"],
   taklif: ["taklif"],
   attachments: ["attachments"],
   kelasHa: ["kelasHa", "rooms", "getRooms", "kelas2", "onlineSession"],
@@ -20585,6 +20586,7 @@ type NodeDefaultElementType = {
   jalasat2: "div";
   jalase: "div";
   embedHtml: typeof Embed;
+  htmlVideo: typeof Video;
   taklif: "div";
   attachments: "div";
   kelasHa: "div";
@@ -20729,6 +20731,7 @@ export const PlasmicStudPanel = Object.assign(
     jalasat2: makeNodeComponent("jalasat2"),
     jalase: makeNodeComponent("jalase"),
     embedHtml: makeNodeComponent("embedHtml"),
+    htmlVideo: makeNodeComponent("htmlVideo"),
     taklif: makeNodeComponent("taklif"),
     attachments: makeNodeComponent("attachments"),
     kelasHa: makeNodeComponent("kelasHa"),

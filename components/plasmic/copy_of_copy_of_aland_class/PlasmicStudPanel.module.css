@@ -332,17 +332,6 @@
   padding-bottom: 0px;
   align-self: flex-start;
 }
-.img___9UmaB {
-  object-fit: cover;
-  max-width: 100%;
-  width: 700px;
-  height: 400px;
-  flex-shrink: 0;
-  display: none;
-}
-.img___9UmaB > picture > img {
-  object-fit: cover;
-}
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -352,6 +341,26 @@
   top: auto;
   z-index: 5;
   min-width: 0;
+}
+.iframe___7JTeV:global(.__wab_instance) {
+  width: 300px;
+  height: 150px;
+  max-width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.iframe__wkE86:global(.__wab_instance) {
+  width: 300px;
+  height: 150px;
+  max-width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.htmlVideo:global(.__wab_instance) {
+  width: 640px;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 .freeBox__wm4QI {
   display: flex;

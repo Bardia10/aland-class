@@ -858,7 +858,7 @@ function PlasmicLogin__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__n693
+                        sty.formField__uAfcu
                       )}
                       label={
                         "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
@@ -869,14 +869,14 @@ function PlasmicLogin__RenderFunc(props: {
                       <AntdInput
                         className={classNames(
                           "__wab_instance",
-                          sty.input__mRfLm
+                          sty.input__uAde
                         )}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__jCoqU
+                        sty.formField___0Ab7O
                       )}
                       label={"\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"}
                       name={"password"}
@@ -885,14 +885,14 @@ function PlasmicLogin__RenderFunc(props: {
                       <AntdPassword
                         className={classNames(
                           "__wab_instance",
-                          sty.passwordInput__nNpZx
+                          sty.passwordInput___4UbPf
                         )}
                       />
                     </FormItemWrapper>
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
-                        sty.button__s6QTb
+                        sty.button__fJaz4
                       )}
                       submitsForm={true}
                       type={"primary"}
@@ -901,7 +901,7 @@ function PlasmicLogin__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__pPj1I
+                          sty.text__fMc7D
                         )}
                       >
                         {"\u0648\u0631\u0648\u062f"}
@@ -1130,7 +1130,7 @@ function PlasmicLogin__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__tq1Ab
+                        sty.formField__bY0Fg
                       )}
                       label={
                         "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
@@ -1141,14 +1141,14 @@ function PlasmicLogin__RenderFunc(props: {
                       <AntdInput
                         className={classNames(
                           "__wab_instance",
-                          sty.input__ds13O
+                          sty.input__asLtQ
                         )}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__tSqW
+                        sty.formField__gUKty
                       )}
                       label={"\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"}
                       name={"password"}
@@ -1157,15 +1157,12 @@ function PlasmicLogin__RenderFunc(props: {
                       <AntdPassword
                         className={classNames(
                           "__wab_instance",
-                          sty.passwordInput__dBpj5
+                          sty.passwordInput__qtAwn
                         )}
                       />
                     </FormItemWrapper>
                     <AntdButton
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button___8HJc2
-                      )}
+                      className={classNames("__wab_instance", sty.button__dkSQ)}
                       submitsForm={true}
                       type={"primary"}
                     >
@@ -1173,7 +1170,7 @@ function PlasmicLogin__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__brSx3
+                          sty.text___7ThqP
                         )}
                       >
                         {"\u0648\u0631\u0648\u062f"}

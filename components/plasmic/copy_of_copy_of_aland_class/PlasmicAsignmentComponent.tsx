@@ -2069,7 +2069,7 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__hqP2U
+                        sty.formField__k3Jkp
                       )}
                       label={"\u0639\u0646\u0648\u0627\u0646"}
                       name={"title"}
@@ -2077,14 +2077,14 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                       <AntdInput
                         className={classNames(
                           "__wab_instance",
-                          sty.input__auMVm
+                          sty.input___0TxOd
                         )}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__vUWi1
+                        sty.formField__cqbsl
                       )}
                       label={"\u062a\u0648\u0636\u06cc\u062d\u0627\u062a"}
                       name={"desc"}
@@ -2093,14 +2093,14 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                       <AntdTextArea
                         className={classNames(
                           "__wab_instance",
-                          sty.textArea__evqnm
+                          sty.textArea__b4IwH
                         )}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__oabNj
+                        sty.formField__oy2Ie
                       )}
                       label={
                         "\u0644\u06cc\u0646\u06a9 (\u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632)"
@@ -2110,16 +2110,16 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                       <AntdInput
                         className={classNames(
                           "__wab_instance",
-                          sty.input__zr0DQ
+                          sty.input__hNk9S
                         )}
                       />
                     </FormItemWrapper>
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
-                        sty.button__hyYx,
+                        sty.button__ahi3G,
                         {
-                          [sty.buttonstage_sending__hyYxgZkja]: hasVariant(
+                          [sty.buttonstage_sending__ahi3GgZkja]: hasVariant(
                             $state,
                             "stage",
                             "sending"
@@ -2137,9 +2137,9 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__iOv8,
+                          sty.text___48Cqs,
                           {
-                            [sty.textstage_sending__iOv8GZkja]: hasVariant(
+                            [sty.textstage_sending___48CqsgZkja]: hasVariant(
                               $state,
                               "stage",
                               "sending"
