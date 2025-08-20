@@ -552,7 +552,6 @@
   padding: 8px;
 }
 .form:global(.__wab_instance) {
-  display: flex;
   flex-direction: column;
   position: relative;
   width: auto;
@@ -562,31 +561,32 @@
   align-items: center;
   object-fit: cover;
   font-family: "Vazirmatn", sans-serif;
+  display: none;
   padding: 8px;
 }
-.formField__swzZu:global(.__wab_instance) {
+.formField__n693:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.input___71Dcg:global(.__wab_instance) {
+.input__mRfLm:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.formField__tUmzE:global(.__wab_instance) {
+.formField__jCoqU:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.passwordInput__iRce:global(.__wab_instance) {
+.passwordInput__nNpZx:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.button__oSwlo:global(.__wab_instance) {
+.button__s6QTb:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text___7TQlD {
+.text__pPj1I {
   position: relative;
   width: 100%;
   height: auto;
@@ -606,29 +606,29 @@
   font-family: "Vazirmatn", sans-serif;
   padding: 8px;
 }
-.formField___2R6B9:global(.__wab_instance) {
+.formField__tq1Ab:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.input__ygn1I:global(.__wab_instance) {
+.input__ds13O:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.formField__lzgAb:global(.__wab_instance) {
+.formField__tSqW:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.passwordInput__dglOe:global(.__wab_instance) {
+.passwordInput__dBpj5:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.button__zm2M:global(.__wab_instance) {
+.button___8HJc2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__wgNgn {
+.text__brSx3 {
   position: relative;
   width: 100%;
   height: auto;

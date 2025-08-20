@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -57,13 +58,6 @@ import {
   useDataEnv,
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
-
-import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
 
 import Button from "../../Button"; // plasmic-import: y61rLxDNYj2u/component
 import AnswereToAsignment from "../../AnswereToAsignment"; // plasmic-import: YY2FpV9I_39a/component
@@ -109,6 +103,8 @@ export type PlasmicAsignmentComponent__ArgsType = {
   asignment2?: any;
   answeres2?: any;
   results?: any;
+  backendUrl?: string;
+  authHeader?: any;
 };
 type ArgPropType = keyof PlasmicAsignmentComponent__ArgsType;
 export const PlasmicAsignmentComponent__ArgProps = new Array<ArgPropType>(
@@ -116,7 +112,9 @@ export const PlasmicAsignmentComponent__ArgProps = new Array<ArgPropType>(
   "onAsignmentChange2",
   "asignment2",
   "answeres2",
-  "results"
+  "results",
+  "backendUrl",
+  "authHeader"
 );
 
 export type PlasmicAsignmentComponent__OverridesType = {
@@ -138,6 +136,8 @@ export interface DefaultAsignmentComponentProps {
   asignment2?: any;
   answeres2?: any;
   results?: any;
+  backendUrl?: string;
+  authHeader?: any;
   stage?: SingleChoiceArg<"start" | "sending" | "colapsed">;
   className?: string;
 }
@@ -180,6 +180,8 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -297,8 +299,6 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
@@ -1105,50 +1105,64 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                             $steps["httpPut"] = true
                               ? (() => {
                                   const actionArgs = {
-                                    dataOp: {
-                                      sourceId: "oFGo9etX3UbW3vpYoEjNm1",
-                                      opId: "4a584fd4-cc5d-4fc2-8a20-01497595b331",
-                                      userArgs: {
-                                        headers: [
-                                          localStorage.getItem("token")
-                                        ],
-
-                                        body: [
-                                          $props.answeres2.map(
-                                            answer => answer.id
-                                          ),
-
-                                          currentItem.id
-                                        ]
-                                      },
-                                      cacheKey: null,
-                                      invalidatedKeys: [],
-                                      roleId: null
-                                    },
-                                    continueOnError: true
+                                    args: [
+                                      "PUT",
+                                      (() => {
+                                        try {
+                                          return (
+                                            $props.backendUrl +
+                                            "webhook/final_answere"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            ans_ids: $props.answeres2.map(
+                                              answer => answer.id
+                                            ),
+                                            final_id: currentItem.id
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return $props.authHeader;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
                                   };
-                                  return (async ({
-                                    dataOp,
-                                    continueOnError
-                                  }) => {
-                                    try {
-                                      const response =
-                                        await executePlasmicDataOp(dataOp, {
-                                          userAuthToken:
-                                            dataSourcesCtx?.userAuthToken,
-                                          user: dataSourcesCtx?.user
-                                        });
-                                      await plasmicInvalidate(
-                                        dataOp.invalidatedKeys
-                                      );
-                                      return response;
-                                    } catch (e) {
-                                      if (!continueOnError) {
-                                        throw e;
-                                      }
-                                      return e;
-                                    }
-                                  })?.apply(null, [actionArgs]);
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
                                 })()
                               : undefined;
                             if (
@@ -1160,8 +1174,8 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                             }
 
                             $steps["login"] =
-                              $steps.httpPut.data.response.status == 401 ||
-                              $steps.httpPut.data.response.status == 403 ||
+                              $steps.httpPut.data.status == 401 ||
+                              $steps.httpPut.data.status == 403 ||
                               $steps.httpPut.data.statusCode == 403
                                 ? (() => {
                                     const actionArgs = { destination: `/` };
@@ -1192,42 +1206,62 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                             $steps["httpGet"] = true
                               ? (() => {
                                   const actionArgs = {
-                                    dataOp: {
-                                      sourceId: "oFGo9etX3UbW3vpYoEjNm1",
-                                      opId: "309d4c4e-c317-4882-b06b-178e546fa7e8",
-                                      userArgs: {
-                                        params: [$state.asignment.taklif[0].id],
-
-                                        headers: [localStorage.getItem("token")]
-                                      },
-                                      cacheKey: null,
-                                      invalidatedKeys: null,
-                                      roleId: null
-                                    },
-                                    continueOnError: true
+                                    args: [
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return (
+                                            $props.backendUrl +
+                                            "webhook/get_taklif"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            taklif_id:
+                                              $state.asignment.taklif[0].id
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return $props.authHeader;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
                                   };
-                                  return (async ({
-                                    dataOp,
-                                    continueOnError
-                                  }) => {
-                                    try {
-                                      const response =
-                                        await executePlasmicDataOp(dataOp, {
-                                          userAuthToken:
-                                            dataSourcesCtx?.userAuthToken,
-                                          user: dataSourcesCtx?.user
-                                        });
-                                      await plasmicInvalidate(
-                                        dataOp.invalidatedKeys
-                                      );
-                                      return response;
-                                    } catch (e) {
-                                      if (!continueOnError) {
-                                        throw e;
-                                      }
-                                      return e;
-                                    }
-                                  })?.apply(null, [actionArgs]);
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
                                 })()
                               : undefined;
                             if (
@@ -1246,7 +1280,7 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                                       variablePath: ["asignment"]
                                     },
                                     operation: 0,
-                                    value: $steps.httpGet.data.response
+                                    value: $steps.httpGet.data
                                   };
                                   return (({
                                     variable,
@@ -1723,48 +1757,67 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                     $steps["httpPost"] = true
                       ? (() => {
                           const actionArgs = {
-                            dataOp: {
-                              sourceId: "oFGo9etX3UbW3vpYoEjNm1",
-                              opId: "9b8b3268-7951-49a0-b613-2f01ab5f5631",
-                              userArgs: {
-                                body: [
-                                  $state.form[0].value.title,
-
-                                  $state.form[0].value.desc,
-
-                                  $state.form[0].value.link,
-
-                                  currentItem.id,
-
-                                  $props.answeres2.map(answer => answer.id)
-                                ],
-
-                                headers: [localStorage.getItem("token")]
-                              },
-                              cacheKey: null,
-                              invalidatedKeys: [],
-                              roleId: null
-                            },
-                            continueOnError: true
-                          };
-                          return (async ({ dataOp, continueOnError }) => {
-                            try {
-                              const response = await executePlasmicDataOp(
-                                dataOp,
-                                {
-                                  userAuthToken: dataSourcesCtx?.userAuthToken,
-                                  user: dataSourcesCtx?.user
+                            args: [
+                              "POST",
+                              (() => {
+                                try {
+                                  return (
+                                    $props.backendUrl + "webhook/add_answere"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                              );
-                              await plasmicInvalidate(dataOp.invalidatedKeys);
-                              return response;
-                            } catch (e) {
-                              if (!continueOnError) {
-                                throw e;
-                              }
-                              return e;
-                            }
-                          })?.apply(null, [actionArgs]);
+                              })(),
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    title: $state.form[0].value.title,
+                                    desc: $state.form[0].value.desc,
+                                    link: $state.form[0].value.link,
+                                    asign_id: currentItem.id,
+                                    ans_ids: $props.answeres2.map(
+                                      answer => answer.id
+                                    )
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              (() => {
+                                try {
+                                  return $props.authHeader;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
                         })()
                       : undefined;
                     if (
@@ -1776,8 +1829,8 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                     }
 
                     $steps["oginasignment4"] =
-                      $steps.httpPost.data.response.status == 401 ||
-                      $steps.httpPost.data.response.status == 403 ||
+                      $steps.httpPost.data.status == 401 ||
+                      $steps.httpPost.data.status == 403 ||
                       $steps.httpPost.data.statusCode == 403
                         ? (() => {
                             const actionArgs = { destination: `/` };
@@ -1840,38 +1893,61 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                     $steps["httpGet"] = true
                       ? (() => {
                           const actionArgs = {
-                            dataOp: {
-                              sourceId: "oFGo9etX3UbW3vpYoEjNm1",
-                              opId: "309d4c4e-c317-4882-b06b-178e546fa7e8",
-                              userArgs: {
-                                headers: [localStorage.getItem("token")],
-
-                                params: [currentItem.id]
-                              },
-                              cacheKey: null,
-                              invalidatedKeys: null,
-                              roleId: null
-                            },
-                            continueOnError: true
-                          };
-                          return (async ({ dataOp, continueOnError }) => {
-                            try {
-                              const response = await executePlasmicDataOp(
-                                dataOp,
-                                {
-                                  userAuthToken: dataSourcesCtx?.userAuthToken,
-                                  user: dataSourcesCtx?.user
+                            args: [
+                              undefined,
+                              (() => {
+                                try {
+                                  return (
+                                    $props.backendUrl + "webhook/get_taklif"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                              );
-                              await plasmicInvalidate(dataOp.invalidatedKeys);
-                              return response;
-                            } catch (e) {
-                              if (!continueOnError) {
-                                throw e;
-                              }
-                              return e;
-                            }
-                          })?.apply(null, [actionArgs]);
+                              })(),
+                              (() => {
+                                try {
+                                  return {
+                                    taklif_id: currentItem.id
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              undefined,
+                              (() => {
+                                try {
+                                  return $props.authHeader;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
                         })()
                       : undefined;
                     if (
@@ -1890,7 +1966,7 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                               variablePath: ["asignment"]
                             },
                             operation: 0,
-                            value: $steps.httpGet.data.response
+                            value: $steps.httpGet.data
                           };
                           return (({
                             variable,
@@ -1993,7 +2069,7 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__d0Dw
+                        sty.formField__hqP2U
                       )}
                       label={"\u0639\u0646\u0648\u0627\u0646"}
                       name={"title"}
@@ -2001,14 +2077,14 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                       <AntdInput
                         className={classNames(
                           "__wab_instance",
-                          sty.input___9I0Fi
+                          sty.input__auMVm
                         )}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField___2Ggv9
+                        sty.formField__vUWi1
                       )}
                       label={"\u062a\u0648\u0636\u06cc\u062d\u0627\u062a"}
                       name={"desc"}
@@ -2017,14 +2093,14 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                       <AntdTextArea
                         className={classNames(
                           "__wab_instance",
-                          sty.textArea__hErc7
+                          sty.textArea__evqnm
                         )}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__rjH1H
+                        sty.formField__oabNj
                       )}
                       label={
                         "\u0644\u06cc\u0646\u06a9 (\u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632)"
@@ -2034,16 +2110,16 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                       <AntdInput
                         className={classNames(
                           "__wab_instance",
-                          sty.input__jTsyz
+                          sty.input__zr0DQ
                         )}
                       />
                     </FormItemWrapper>
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
-                        sty.button__mwIoV,
+                        sty.button__hyYx,
                         {
-                          [sty.buttonstage_sending__mwIoVgZkja]: hasVariant(
+                          [sty.buttonstage_sending__hyYxgZkja]: hasVariant(
                             $state,
                             "stage",
                             "sending"
@@ -2061,9 +2137,9 @@ function PlasmicAsignmentComponent__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__sFQm0,
+                          sty.text__iOv8,
                           {
-                            [sty.textstage_sending__sFQm0GZkja]: hasVariant(
+                            [sty.textstage_sending__iOv8GZkja]: hasVariant(
                               $state,
                               "stage",
                               "sending"

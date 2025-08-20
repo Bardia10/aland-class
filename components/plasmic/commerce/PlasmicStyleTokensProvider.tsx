@@ -12,7 +12,7 @@ import {
 
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: xp1p7dmg329XVLHyuEUxD2/projectModule
 
-import * as projectcss from "./plasmic.module.css"; // plasmic-import: xp1p7dmg329XVLHyuEUxD2/projectcss
+import projectcss from "./plasmic.module.css"; // plasmic-import: xp1p7dmg329XVLHyuEUxD2/projectcss
 
 const data = {
   base: projectcss.plasmic_tokens,

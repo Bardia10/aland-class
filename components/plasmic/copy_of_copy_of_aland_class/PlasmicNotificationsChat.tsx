@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -220,7 +221,7 @@ function PlasmicNotificationsChat__RenderFunc(props: {
                 {(() => {
                   try {
                     return (() => {
-                      months = {
+                      let months = {
                         "1": "فروردین",
                         "2": "اردیبهشت",
                         "3": "خرداد",
@@ -465,7 +466,7 @@ function PlasmicNotificationsChat__RenderFunc(props: {
                 {(() => {
                   try {
                     return (() => {
-                      months = {
+                      let months = {
                         "1": "فروردین",
                         "2": "اردیبهشت",
                         "3": "خرداد",
