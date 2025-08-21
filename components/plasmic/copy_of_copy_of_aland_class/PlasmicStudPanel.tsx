@@ -85,8 +85,8 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: mJqpyqbUtzd2Vo
 import sty from "./PlasmicStudPanel.module.css"; // plasmic-import: IO3zisbnpkhM/css
 
 import IconIcon from "../radix_ui/icons/PlasmicIcon__Icon"; // plasmic-import: MbDRsJU0e3bw/icon
-import RefreshCwAlt3SvgrepoComSvgIcon from "./icons/PlasmicIcon__RefreshCwAlt3SvgrepoComSvg"; // plasmic-import: i0oS3ithAfjx/icon
 import ArrowRightSvgIcon from "./icons/PlasmicIcon__ArrowRightSvg"; // plasmic-import: 9hILA7Pb8GQY/icon
+import RefreshCwAlt3SvgrepoComSvgIcon from "./icons/PlasmicIcon__RefreshCwAlt3SvgrepoComSvg"; // plasmic-import: i0oS3ithAfjx/icon
 
 createPlasmicElementProxy;
 
@@ -123,6 +123,7 @@ export type PlasmicStudPanel__OverridesType = {
   barname?: Flex__<"div">;
   barname3?: Flex__<"div">;
   currentWeek?: Flex__<"div">;
+  nothing?: Flex__<"div">;
   taklif3?: Flex__<"div">;
   kelas4?: Flex__<"div">;
   general3?: Flex__<"div">;
@@ -139,6 +140,7 @@ export type PlasmicStudPanel__OverridesType = {
   taklif6?: Flex__<"div">;
   kelas7?: Flex__<"div">;
   general6?: Flex__<"div">;
+  nothing2?: Flex__<"div">;
   taklif18?: Flex__<"div">;
   kelas19?: Flex__<"div">;
   general18?: Flex__<"div">;
@@ -1363,8 +1365,8 @@ function PlasmicStudPanel__RenderFunc(props: {
           (() => {
             try {
               return !(
-                $state.lastRequest.data.response.status == 401 ||
-                $state.lastRequest.data.response.status == 403 ||
+                $state.lastRequest.data.status == 401 ||
+                $state.lastRequest.data.status == 403 ||
                 $state.lastRequest.data.statusCode == 403
               );
             } catch (e) {
@@ -1840,6 +1842,7 @@ function PlasmicStudPanel__RenderFunc(props: {
               const $steps = {};
 
               $steps["goToLogin"] =
+                $state.getSelf.error == "jwt malformed" ||
                 $state.getSelf.error.status == 401 ||
                 $state.getSelf.error.status == 403
                   ? (() => {
@@ -1940,7 +1943,7 @@ function PlasmicStudPanel__RenderFunc(props: {
                       </div>
                       {(() => {
                         try {
-                          return $state.fields.length > 0;
+                          return $state.fields[0].id != undefined;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -4507,7 +4510,7 @@ function PlasmicStudPanel__RenderFunc(props: {
                       >
                         {(() => {
                           try {
-                            return $state.rooms2.length > 0;
+                            return $state.rooms2[0].id != undefined;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -4803,360 +4806,407 @@ function PlasmicStudPanel__RenderFunc(props: {
                       >
                         {"\u062f\u0631\u0633 \u0647\u0627"}
                       </div>
-                      {(_par =>
-                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                        (() => {
-                          try {
-                            return $state.fields;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
+                      {(() => {
+                        try {
+                          return $state.fields[0].id != undefined;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
                           }
-                        })()
-                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                        const currentItem = __plasmic_item_0;
-                        const currentIndex = __plasmic_idx_0;
-                        return (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__uzyIh
-                            )}
-                            key={currentIndex}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["updateShowWall"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["showWall"]
-                                      },
-                                      operation: 0,
-                                      value: true
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateShowWall"] != null &&
-                                typeof $steps["updateShowWall"] === "object" &&
-                                typeof $steps["updateShowWall"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateShowWall"] = await $steps[
-                                  "updateShowWall"
-                                ];
+                          throw e;
+                        }
+                      })()
+                        ? (_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
+                              try {
+                                return $state.fields;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
+                            })()
+                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
+                            return (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__uzyIh
+                                )}
+                                key={currentIndex}
+                                onClick={async event => {
+                                  const $steps = {};
 
-                              $steps["updateCurrentKarnameDars"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["currentKarnameDars"]
-                                      },
-                                      operation: 0,
-                                      value: currentItem.id
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateCurrentKarnameDars"] != null &&
-                                typeof $steps["updateCurrentKarnameDars"] ===
-                                  "object" &&
-                                typeof $steps["updateCurrentKarnameDars"]
-                                  .then === "function"
-                              ) {
-                                $steps["updateCurrentKarnameDars"] =
-                                  await $steps["updateCurrentKarnameDars"];
-                              }
-
-                              $steps["updateCurrentKarnameSection"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["currentKarnameSection"]
-                                      },
-                                      operation: 0,
-                                      value: "overview"
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateCurrentKarnameSection"] != null &&
-                                typeof $steps["updateCurrentKarnameSection"] ===
-                                  "object" &&
-                                typeof $steps["updateCurrentKarnameSection"]
-                                  .then === "function"
-                              ) {
-                                $steps["updateCurrentKarnameSection"] =
-                                  await $steps["updateCurrentKarnameSection"];
-                              }
-
-                              $steps["httpGet"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return (
-                                              $state.backendUrl +
-                                              "webhook/get_overall"
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
+                                  $steps["updateShowWall"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["showWall"]
+                                          },
+                                          operation: 0,
+                                          value: true
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
                                           }
-                                        })(),
-                                        (() => {
-                                          try {
-                                            return {
-                                              dars_id: currentItem.dars_id
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })(),
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return $state.authorizationHeader;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["httpGet"] != null &&
-                                typeof $steps["httpGet"] === "object" &&
-                                typeof $steps["httpGet"].then === "function"
-                              ) {
-                                $steps["httpGet"] = await $steps["httpGet"];
-                              }
+                                          const { objRoot, variablePath } =
+                                            variable;
 
-                              $steps["updateLastRequest"] = false
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["lastRequest"]
-                                      },
-                                      operation: 0,
-                                      value: $steps.httpGet
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateLastRequest"] != null &&
-                                typeof $steps["updateLastRequest"] ===
-                                  "object" &&
-                                typeof $steps["updateLastRequest"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateLastRequest"] = await $steps[
-                                  "updateLastRequest"
-                                ];
-                              }
-
-                              $steps["updateTermsOveralls"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["termsOveralls"]
-                                      },
-                                      operation: 0,
-                                      value: $steps.httpGet.data.terms
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTermsOveralls"] != null &&
-                                typeof $steps["updateTermsOveralls"] ===
-                                  "object" &&
-                                typeof $steps["updateTermsOveralls"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTermsOveralls"] = await $steps[
-                                  "updateTermsOveralls"
-                                ];
-                              }
-
-                              $steps["updateShowWall2"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["showWall"]
-                                      },
-                                      operation: 0,
-                                      value: false
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateShowWall2"] != null &&
-                                typeof $steps["updateShowWall2"] === "object" &&
-                                typeof $steps["updateShowWall2"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateShowWall2"] = await $steps[
-                                  "updateShowWall2"
-                                ];
-                              }
-                            }}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__r331
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.title;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateShowWall"] != null &&
+                                    typeof $steps["updateShowWall"] ===
+                                      "object" &&
+                                    typeof $steps["updateShowWall"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateShowWall"] = await $steps[
+                                      "updateShowWall"
+                                    ];
                                   }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        );
-                      })}
+
+                                  $steps["updateCurrentKarnameDars"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["currentKarnameDars"]
+                                          },
+                                          operation: 0,
+                                          value: currentItem.id
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateCurrentKarnameDars"] !=
+                                      null &&
+                                    typeof $steps[
+                                      "updateCurrentKarnameDars"
+                                    ] === "object" &&
+                                    typeof $steps["updateCurrentKarnameDars"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["updateCurrentKarnameDars"] =
+                                      await $steps["updateCurrentKarnameDars"];
+                                  }
+
+                                  $steps["updateCurrentKarnameSection"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: [
+                                              "currentKarnameSection"
+                                            ]
+                                          },
+                                          operation: 0,
+                                          value: "overview"
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateCurrentKarnameSection"] !=
+                                      null &&
+                                    typeof $steps[
+                                      "updateCurrentKarnameSection"
+                                    ] === "object" &&
+                                    typeof $steps["updateCurrentKarnameSection"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["updateCurrentKarnameSection"] =
+                                      await $steps[
+                                        "updateCurrentKarnameSection"
+                                      ];
+                                  }
+
+                                  $steps["httpGet"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return (
+                                                  $state.backendUrl +
+                                                  "webhook/get_overall"
+                                                );
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })(),
+                                            (() => {
+                                              try {
+                                                return {
+                                                  dars_id: currentItem.dars_id
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })(),
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return $state.authorizationHeader;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["httpGet"] != null &&
+                                    typeof $steps["httpGet"] === "object" &&
+                                    typeof $steps["httpGet"].then === "function"
+                                  ) {
+                                    $steps["httpGet"] = await $steps["httpGet"];
+                                  }
+
+                                  $steps["updateLastRequest"] = false
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["lastRequest"]
+                                          },
+                                          operation: 0,
+                                          value: $steps.httpGet
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateLastRequest"] != null &&
+                                    typeof $steps["updateLastRequest"] ===
+                                      "object" &&
+                                    typeof $steps["updateLastRequest"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateLastRequest"] = await $steps[
+                                      "updateLastRequest"
+                                    ];
+                                  }
+
+                                  $steps["updateTermsOveralls"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["termsOveralls"]
+                                          },
+                                          operation: 0,
+                                          value: $steps.httpGet.data.terms
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateTermsOveralls"] != null &&
+                                    typeof $steps["updateTermsOveralls"] ===
+                                      "object" &&
+                                    typeof $steps["updateTermsOveralls"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["updateTermsOveralls"] =
+                                      await $steps["updateTermsOveralls"];
+                                  }
+
+                                  $steps["updateShowWall2"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["showWall"]
+                                          },
+                                          operation: 0,
+                                          value: false
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateShowWall2"] != null &&
+                                    typeof $steps["updateShowWall2"] ===
+                                      "object" &&
+                                    typeof $steps["updateShowWall2"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateShowWall2"] = await $steps[
+                                      "updateShowWall2"
+                                    ];
+                                  }
+                                }}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__r331
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.title;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                            );
+                          })
+                        : null}
                     </div>
                   ) : null}
                   {(() => {
@@ -6397,6 +6447,59 @@ function PlasmicStudPanel__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.currentBarname == currentIte.day &&
+                                    $state.schedule.currentWeek[
+                                      currentIte.upper
+                                    ][0] == undefined
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  data-plasmic-name={"nothing"}
+                                  data-plasmic-override={overrides.nothing}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.nothing
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__qJ6N6
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return "در این روز برنامه ای ندارید";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                              ) : null}
                               {(() => {
                                 try {
                                   return (
@@ -10136,6 +10239,59 @@ function PlasmicStudPanel__RenderFunc(props: {
                                     );
                                   })
                                 : null}
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.currentBarname == currentIte.day &&
+                                    $state.schedule.nextWeek[
+                                      currentIte.upper
+                                    ][0] == undefined
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  data-plasmic-name={"nothing2"}
+                                  data-plasmic-override={overrides.nothing2}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.nothing2
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__hkBs8
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return "در این روز برنامه ای ندارید";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                              ) : null}
                             </div>
                           );
                         })}
@@ -18518,6 +18674,51 @@ function PlasmicStudPanel__RenderFunc(props: {
                       data-plasmic-override={overrides.takllif}
                       className={classNames(projectcss.all, sty.takllif)}
                     >
+                      <ArrowRightSvgIcon
+                        className={classNames(projectcss.all, sty.svg__sQ6Z)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateCurrentTakalifSection"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["currentTakalifSection"]
+                                  },
+                                  operation: 0,
+                                  value: "takalif"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateCurrentTakalifSection"] != null &&
+                            typeof $steps["updateCurrentTakalifSection"] ===
+                              "object" &&
+                            typeof $steps["updateCurrentTakalifSection"]
+                              .then === "function"
+                          ) {
+                            $steps["updateCurrentTakalifSection"] =
+                              await $steps["updateCurrentTakalifSection"];
+                          }
+                        }}
+                        role={"img"}
+                      />
+
                       <div
                         className={classNames(
                           projectcss.all,
@@ -19173,51 +19374,6 @@ function PlasmicStudPanel__RenderFunc(props: {
                         })()}
                         stage={"start"}
                       />
-
-                      <ArrowRightSvgIcon
-                        className={classNames(projectcss.all, sty.svg__sQ6Z)}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateCurrentTakalifSection"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["currentTakalifSection"]
-                                  },
-                                  operation: 0,
-                                  value: "takalif"
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateCurrentTakalifSection"] != null &&
-                            typeof $steps["updateCurrentTakalifSection"] ===
-                              "object" &&
-                            typeof $steps["updateCurrentTakalifSection"]
-                              .then === "function"
-                          ) {
-                            $steps["updateCurrentTakalifSection"] =
-                              await $steps["updateCurrentTakalifSection"];
-                          }
-                        }}
-                        role={"img"}
-                      />
                     </div>
                   ) : null}
                 </div>
@@ -19271,64 +19427,65 @@ function PlasmicStudPanel__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "PUT",
-                              (() => {
-                                try {
-                                  return (
-                                    $state.backendUrl + "webhook/highnotif"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                    $steps["invokeGlobalAction"] =
+                      $state.lastNotif > -1
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "PUT",
+                                (() => {
+                                  try {
+                                    return (
+                                      $state.backendUrl + "webhook/highnotif"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return { new: $state.lastNotif };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                                })(),
+                                (() => {
+                                  try {
+                                    return { new: $state.lastNotif };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })(),
-                              undefined,
-                              (() => {
-                                try {
-                                  return $state.authorizationHeader;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                                })(),
+                                undefined,
+                                (() => {
+                                  try {
+                                    return $state.authorizationHeader;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                     if (
                       $steps["invokeGlobalAction"] != null &&
                       typeof $steps["invokeGlobalAction"] === "object" &&
@@ -20059,6 +20216,7 @@ const PlasmicDescendants = {
     "barname",
     "barname3",
     "currentWeek",
+    "nothing",
     "taklif3",
     "kelas4",
     "general3",
@@ -20075,6 +20233,7 @@ const PlasmicDescendants = {
     "taklif6",
     "kelas7",
     "general6",
+    "nothing2",
     "taklif18",
     "kelas19",
     "general18",
@@ -20143,6 +20302,7 @@ const PlasmicDescendants = {
     "barname",
     "barname3",
     "currentWeek",
+    "nothing",
     "taklif3",
     "kelas4",
     "general3",
@@ -20159,6 +20319,7 @@ const PlasmicDescendants = {
     "taklif6",
     "kelas7",
     "general6",
+    "nothing2",
     "taklif18",
     "kelas19",
     "general18",
@@ -20223,6 +20384,7 @@ const PlasmicDescendants = {
     "barname",
     "barname3",
     "currentWeek",
+    "nothing",
     "taklif3",
     "kelas4",
     "general3",
@@ -20239,6 +20401,7 @@ const PlasmicDescendants = {
     "taklif6",
     "kelas7",
     "general6",
+    "nothing2",
     "taklif18",
     "kelas19",
     "general18",
@@ -20307,6 +20470,7 @@ const PlasmicDescendants = {
     "barname",
     "barname3",
     "currentWeek",
+    "nothing",
     "taklif3",
     "kelas4",
     "general3",
@@ -20323,6 +20487,7 @@ const PlasmicDescendants = {
     "taklif6",
     "kelas7",
     "general6",
+    "nothing2",
     "taklif18",
     "kelas19",
     "general18",
@@ -20359,6 +20524,7 @@ const PlasmicDescendants = {
   barname3: [
     "barname3",
     "currentWeek",
+    "nothing",
     "taklif3",
     "kelas4",
     "general3",
@@ -20375,6 +20541,7 @@ const PlasmicDescendants = {
     "taklif6",
     "kelas7",
     "general6",
+    "nothing2",
     "taklif18",
     "kelas19",
     "general18",
@@ -20409,6 +20576,7 @@ const PlasmicDescendants = {
   ],
   currentWeek: [
     "currentWeek",
+    "nothing",
     "taklif3",
     "kelas4",
     "general3",
@@ -20422,6 +20590,7 @@ const PlasmicDescendants = {
     "kelas6",
     "general5"
   ],
+  nothing: ["nothing"],
   taklif3: ["taklif3"],
   kelas4: ["kelas4"],
   general3: ["general3"],
@@ -20439,6 +20608,7 @@ const PlasmicDescendants = {
     "taklif6",
     "kelas7",
     "general6",
+    "nothing2",
     "taklif18",
     "kelas19",
     "general18",
@@ -20452,6 +20622,7 @@ const PlasmicDescendants = {
   taklif6: ["taklif6"],
   kelas7: ["kelas7"],
   general6: ["general6"],
+  nothing2: ["nothing2"],
   taklif18: ["taklif18"],
   kelas19: ["kelas19"],
   general18: ["general18"],
@@ -20553,6 +20724,7 @@ type NodeDefaultElementType = {
   barname: "div";
   barname3: "div";
   currentWeek: "div";
+  nothing: "div";
   taklif3: "div";
   kelas4: "div";
   general3: "div";
@@ -20569,6 +20741,7 @@ type NodeDefaultElementType = {
   taklif6: "div";
   kelas7: "div";
   general6: "div";
+  nothing2: "div";
   taklif18: "div";
   kelas19: "div";
   general18: "div";
@@ -20697,6 +20870,7 @@ export const PlasmicStudPanel = Object.assign(
     barname: makeNodeComponent("barname"),
     barname3: makeNodeComponent("barname3"),
     currentWeek: makeNodeComponent("currentWeek"),
+    nothing: makeNodeComponent("nothing"),
     taklif3: makeNodeComponent("taklif3"),
     kelas4: makeNodeComponent("kelas4"),
     general3: makeNodeComponent("general3"),
@@ -20713,6 +20887,7 @@ export const PlasmicStudPanel = Object.assign(
     taklif6: makeNodeComponent("taklif6"),
     kelas7: makeNodeComponent("kelas7"),
     general6: makeNodeComponent("general6"),
+    nothing2: makeNodeComponent("nothing2"),
     taklif18: makeNodeComponent("taklif18"),
     kelas19: makeNodeComponent("kelas19"),
     general18: makeNodeComponent("general18"),
